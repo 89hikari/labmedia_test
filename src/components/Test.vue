@@ -30,12 +30,12 @@
                             <td><button class="remove-button" type="button" @click="showModal(index)"></button></td>
                         </tr>
                     </table>
-                    <Popup :del="deleteItem" :ind="start + forDelete"
+                    <Popup :del="deleteItem" :ind="getFilteredNames[forDelete]"
                                 v-show="isModalVisible"
                                 @close="closeModal"
                             />
             </div>
-            <div v-for="(user, index) in /*не бейте*/ Math.ceil(users.filter(item => item.username.toLowerCase().includes(searchText.toLowerCase()) || item.email.toLowerCase().includes(searchText.toLowerCase())).length / 5)" :key="index" class="pagination">
+            <div v-for="(user, index) in Math.ceil(users.filter(item => item.username.toLowerCase().includes(searchText.toLowerCase()) || item.email.toLowerCase().includes(searchText.toLowerCase())).length / 5)" :key="index" class="pagination">
                 <button @click="page = index; start = index * 5">{{index+1}}</button>
             </div>
         </div>
@@ -119,8 +119,7 @@ export default {
             }
         },
         deleteItem(index) {
-            console.log(index)
-            this.users.splice(index, 1);
+            this.users = this.users.filter(item => !(item.id == index.id));
         },
         clearSort(){
             let result = this.users;
