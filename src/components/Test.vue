@@ -45,7 +45,7 @@
 </template>
 
 <script>
-
+"use strict";
 import axios from 'axios';
 import Popup from './Popup.vue';
 import './../assets/styles/main.css';

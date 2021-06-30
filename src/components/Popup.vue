@@ -47,11 +47,19 @@
         <footer class="modal-footer">
           <button
             type="button"
-            class="btn-green"
+            class="btn-submit"
             @click="del(ind); close()"
             aria-label="Close modal"
           >
-            Удалить
+            Да
+          </button>
+          <button
+            type="button"
+            class="btn-submit"
+            @click="close"
+            aria-label="Close modal"
+          >
+            Нет
           </button>
         </footer>
       </div>
@@ -97,7 +105,8 @@
 
   .modal-footer {
     border-top: 1px solid #eeeeee;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .modal-body {
@@ -107,25 +116,33 @@
 
   .btn-close {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 6px;
+    right: 10px;
     border: none;
     font-size: 20px;
-    padding: 10px;
+    padding: 5px;
     cursor: pointer;
     font-weight: bold;
     color: #4AAE9B;
     background: transparent;
   }
 
-  .btn-green {
+  .btn-submit {
     color: white;
     font-family: 'Zona Pro';
     padding: 10px;
+    width: 20%;
     cursor: pointer;
-    background-color: rgb(0, 17, 252);
     border: none;
     border-radius: 10px;
+  }
+
+  .btn-submit:nth-child(1) { 
+    background-color: rgb(19, 134, 34);
+  }
+
+  .btn-submit:nth-child(2) { 
+    background-color: rgb(211, 65, 65);
   }
 
   .modal-fade-enter,
