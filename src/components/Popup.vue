@@ -61,6 +61,7 @@
 
 <style>
   .modal-backdrop {
+    font-family: 'Zona Pro';
     position: fixed;
     top: 0;
     bottom: 0;
@@ -83,6 +84,7 @@
   .modal-header,
   .modal-footer {
     padding: 15px;
+    font-family: 'Zona Pro';
     display: flex;
   }
 
@@ -118,11 +120,12 @@
 
   .btn-green {
     color: white;
+    font-family: 'Zona Pro';
     padding: 10px;
     cursor: pointer;
-    background: #4AAE9B;
-    border: 1px solid #4AAE9B;
-    border-radius: 2px;
+    background-color: rgb(0, 17, 252);
+    border: none;
+    border-radius: 10px;
   }
 
   .modal-fade-enter,

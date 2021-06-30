@@ -1,10 +1,12 @@
 <template>
     <div class="container">
-        <h1 class="title">Список пользователей</h1>
-        <div class="input-block">
-            <input class="input-block-input" type="text" placeholder="Поиск по имени или e-mail" v-model="searchText" @input="searchText = $event.target.value">
-            <div v-if="searchText != '' || sorted">
-                <button class="input-clear" @click="clearSort" :class="{ active: isActive3 }" >Очистить фильтр</button>
+        <div>
+            <h1 class="title">Список пользователей</h1>
+            <div class="input-block">
+                <input class="input-block-input" type="text" placeholder="Поиск по имени или e-mail" v-model="searchText" @input="searchText = $event.target.value">
+                <div v-if="searchText != '' || sorted">
+                    <button class="input-clear" @click="clearSort" >Очистить фильтр</button>
+                </div>
             </div>
         </div>
         <div class="data-block">
@@ -51,7 +53,7 @@ import './../assets/styles/main.css';
 export default {
     name: 'Test',
     components: {
-      Popup,
+      Popup, 
     },
     data() {
         return {
@@ -130,6 +132,10 @@ export default {
             return result.sort(function(a, b) {
                 return a.id-b.id
             })
+        },
+        // переход на 1 страницу если что-то введено в поиске
+        checkIfSearchNotEmpty() {
+            this.searchText != '' ? this.page = 0 : false;
         }
     },
 
@@ -274,17 +280,17 @@ export default {
                     }
                     .remove-button {
                         font-family: 'Zona Pro';
-                display: inline-block;
-                border: none;
-                background-color: #fff;
-                font-size: 16px;
-                cursor: pointer;
-                text-align: center;
-                padding: 6px 0px 6px 30px;
-                background-image: url('./../assets/images/remove.svg');
-                background-repeat: no-repeat;
-                background-position: center center;
-                background-size: 20px;
+                        display: inline-block;
+                        border: none;
+                        background-color: #fff;
+                        font-size: 16px;
+                        cursor: pointer;
+                        text-align: center;
+                        padding: 6px 0px 6px 30px;
+                        background-image: url('./../assets/images/remove.svg');
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        background-size: 20px;
                     }
                 }
             }
